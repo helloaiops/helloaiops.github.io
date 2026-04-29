@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>Whats Scan Plus & QR Tool – QR Scanner, WhatsApp Tools & More</title>
+  <meta name="description" content="All-in-one QR code scanner & generator, WhatsApp Web, Direct Chat, Status Saver, Schedule Messages, Document Scanner, Speech to Text, and AI Assistant. Free on Android." />
+  <meta name="keywords" content="QR code scanner, QR generator, WhatsApp Web, status saver, direct WhatsApp chat, schedule WhatsApp message, document scanner, speech to text, barcode scanner, android qr app" />
+  <meta name="author" content="Ripplestacks" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Whats Scan Plus & QR Tool – All-in-One WhatsApp & QR App" />
+  <meta property="og:description" content="QR scanner, WhatsApp Web, Status Saver, Direct Chat, Schedule Messages, Document Scanner & more — all in one free app." />
+  <meta property="og:image" content="assets/images/icon.png" />
+  <meta property="og:site_name" content="Whats Scan Plus & QR Tool" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Whats Scan Plus & QR Tool" />
+  <meta name="twitter:description" content="QR scanner, WhatsApp Web, Status Saver, Direct Chat, Document Scanner & more — free on Android." />
+  <meta name="twitter:image" content="assets/images/icon.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Whats Scan Plus & QR Tool",
+    "operatingSystem": "ANDROID",
+    "applicationCategory": "UtilitiesApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Ripplestacks",
+      "email": "vaghani98@gmail.com"
+    },
+    "description": "All-in-one QR code scanner & generator with WhatsApp Web, Direct Chat, Status Saver, Schedule Messages, Document Scanner, Speech to Text, and AI Assistant.",
+    "screenshot": "assets/images/icon.png"
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #25D366;
+      --green-dark: #128C7E;
+      --green-xdark: #075E54;
+      --green-light: #d1fae5;
+      --green-pale: #f0fdf4;
+      --dark: #052e16;
+      --text: #14532d;
+      --muted: #4b7a62;
+      --border: #bbf7d0;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--green-pale);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 1px 0 rgba(37,211,102,0.08), 0 4px 24px rgba(6,95,70,0.06);
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #052e16;
+    }
+
+    .nav-brand img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+      font-size: 0.9rem;
+      color: #4b7a62;
+    }
+
+    .nav-links a:hover { color: var(--green-dark); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,211,102,0.3); }
+
+    .btn-primary {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--green);
+      color: var(--green-dark);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: #065f46;
+      color: var(--white);
+      padding: 100px 24px 90px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      min-height: calc(100vh - 64px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* layered subtle radial glows — balanced, not one-sided */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%,   rgba(37,211,102,0.22) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 50% 100%,  rgba(5,46,22,0.55)   0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* mesh-dot texture */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+
+    .hero > * { position: relative; z-index: 1; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.12;
+      max-width: 700px;
+      margin: 0 auto 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span { color: #4ade80; }
+    .hero h1 .hl { white-space: nowrap; }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: rgba(255,255,255,0.7);
+      max-width: 520px;
+      margin: 0 auto 44px;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-bottom: 64px;
+    }
+
+    .hero-cta .btn-primary {
+      font-size: 1rem;
+      padding: 14px 32px;
+      background: #25D366;
+      box-shadow: 0 0 0 0 rgba(37,211,102,0.4);
+      animation: pulse-ring 2.4s ease-out infinite;
+    }
+
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0   rgba(37,211,102,0.45); }
+      70%  { box-shadow: 0 0 0 14px rgba(37,211,102,0);   }
+      100% { box-shadow: 0 0 0 0   rgba(37,211,102,0);    }
+    }
+
+    .hero-cta .btn-outline {
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.06);
+    }
+    .hero-cta .btn-outline:hover {
+      border-color: #25D366;
+      color: #4ade80;
+      background: rgba(37,211,102,0.1);
+      box-shadow: none;
+    }
+
+    /* stats row */
+    .hero-stats {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0;
+      background: rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 20px 40px;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-stat {
+      padding: 0 32px;
+      border-right: 1px solid rgba(255,255,255,0.12);
+    }
+    .hero-stat:last-child { border-right: none; }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .hero-stat span {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 560px) {
+      .hero-stats { padding: 16px 20px; }
+      .hero-stat { padding: 0 18px; }
+      .hero-stat strong { font-size: 1.5rem; }
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 80px 24px; }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--green-dark);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      color: #052e16;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: #4b7a62;
+      max-width: 580px;
+    }
+
+    /* ── FEATURES GRID ── */
+    #features { background: #f0fdf4; }
+
+    .features-header { text-align: center; margin-bottom: 56px; }
+    .features-header .section-sub { margin: 0 auto; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border: 1px solid #bbf7d0;
+      border-radius: 16px;
+      padding: 28px 26px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(37,211,102,0.15);
+      border-color: var(--green);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #065f46;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: #4b7a62;
+      line-height: 1.6;
+    }
+
+    /* ── WHY ── */
+    #why .inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .why-list { list-style: none; margin-top: 32px; display: flex; flex-direction: column; gap: 18px; }
+
+    .why-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 0.95rem;
+      color: #1a4731;
+    }
+
+    .why-list .check {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.75rem;
+      margin-top: 2px;
+    }
+
+    .why-visual {
+      background: linear-gradient(145deg, #052e16, #065f46);
+      border-radius: 24px;
+      padding: 40px 32px;
+      color: white;
+      text-align: center;
+    }
+
+    .why-visual .app-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 24px;
+      margin: 0 auto 24px;
+      display: block;
+      box-shadow: 0 8px 32px rgba(37,211,102,0.3);
+    }
+
+    .why-visual h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+    .why-visual p { font-size: 0.9rem; color: rgba(255,255,255,0.65); margin-bottom: 28px; }
+
+    .store-badges { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+
+    .store-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 12px 22px;
+      width: 100%;
+      max-width: 220px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--white);
+      transition: background 0.2s;
+    }
+
+    .store-badge:hover { background: rgba(37,211,102,0.2); border-color: var(--green); }
+    .store-badge svg { flex-shrink: 0; }
+
+    /* ── PRIVACY STRIP ── */
+    #privacy-strip {
+      background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    #privacy-strip h2 { font-size: 1.4rem; font-weight: 700; color: #052e16; margin-bottom: 10px; }
+    #privacy-strip p  { color: #065f46; font-size: 0.95rem; max-width: 540px; margin: 0 auto 24px; }
+
+    /* ── PREMIUM SECTION ── */
+    #premium {
+      background: #052e16;
+      padding: 90px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #premium::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 15% 50%, rgba(37,211,102,0.12) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 50% at 85% 50%, rgba(37,211,102,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    #premium .container { position: relative; z-index: 1; }
+
+    .premium-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .premium-left .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(37,211,102,0.12);
+      border: 1px solid rgba(37,211,102,0.3);
+      color: #4ade80;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 50px;
+      margin-bottom: 22px;
+    }
+
+    .premium-left h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .premium-left h2 em {
+      font-style: normal;
+      color: #4ade80;
+    }
+
+    .premium-left p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+
+    .premium-perks {
+      list-style: none;
+      margin: 28px 0 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .premium-perks li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .perk-dot {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      color: #fff;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    /* pricing card */
+    .premium-card {
+      background: linear-gradient(145deg, #065f46, #0d7a5a);
+      border: 1px solid rgba(37,211,102,0.3);
+      border-radius: 28px;
+      padding: 44px 36px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #25D366;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 20px;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+
+    .card-icon {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 8px;
+    }
+
+    .card-price {
+      font-size: 4rem;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .card-price sup {
+      font-size: 1.6rem;
+      vertical-align: top;
+      margin-top: 10px;
+      font-weight: 700;
+    }
+
+    .card-price-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 28px;
+    }
+
+    .card-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .card-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .card-features li::before {
+      content: "✓";
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      background: rgba(37,211,102,0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      color: #4ade80;
+      font-weight: 900;
+    }
+
+    .btn-white {
+      background: #ffffff;
+      color: #052e16;
+      width: 100%;
+      justify-content: center;
+      font-size: 1rem;
+      padding: 14px 24px;
+      border-radius: 50px;
+      font-weight: 700;
+    }
+
+    .btn-white:hover {
+      background: #f0fdf4;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .card-note {
+      margin-top: 14px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    @media (max-width: 768px) {
+      .premium-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #052e16;
+      color: rgba(255,255,255,0.6);
+      padding: 40px 24px;
+      text-align: center;
+      font-size: 0.875rem;
+    }
+
+    footer a { color: var(--green); }
+    footer a:hover { text-decoration: underline; }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      #why .inner { grid-template-columns: 1fr; gap: 40px; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 64px 20px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <a href="#" class="nav-brand">
+    <img src="assets/images/icon.png" alt="Whats Scan Plus icon" />
+    Whats Scan Plus
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#premium">Upgrade</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="https://helloaiops.github.io/whatsscanplusqrtool/privacy-policy.html" target="_blank" rel="noopener">Privacy</a></li>
+  </ul>
+  <a href="https://play.google.com/store/apps/details?id=com.universal.whatsscanplus.qrtool" class="btn btn-primary" target="_blank" rel="noopener">
+    Get the App
+  </a>
+</nav>
+
+<!-- ── HERO ── -->
+<header class="hero">
+  <div class="hero-badge">&#9679; Free &nbsp;&middot;&nbsp; Android</div>
+  <h1>The Ultimate<br><span class="hl">WhatsApp &amp; QR</span> Toolkit</h1>
+  <p>Scan QR codes, browse WhatsApp Web, save statuses, schedule messages, scan documents, and much more — all in one free app.</p>
+
+  <div class="hero-cta">
+    <a href="https://play.google.com/store/apps/details?id=com.universal.whatsscanplus.qrtool"
+       class="btn btn-primary" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 512 512" fill="currentColor">
+        <path d="M48 59.49v393a4.33 4.33 0 0 0 7.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0 0 48 59.49z"/>
+        <path d="M345.8 174L89.22 32.64l-.16-.09c-4.42-2.4-8.62 3.58-5 7.06L285.19 231.28z"/>
+        <path d="M84.08 472.39c-3.64 3.48.56 9.46 5 7.06l.16-.09L345.8 338l-60.61-57.28z"/>
+        <path d="M449.38 231l-71.65-39.46L310.36 256l67.37 64.43L449.38 281c19.49-10.77 19.49-39.23 0-50z"/>
+      </svg>
+      Download on Google Play
+    </a>
+    <a href="#features" class="btn btn-outline">
+      Explore Features
+    </a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <strong>10+</strong>
+      <span>Powerful Features</span>
+    </div>
+    <div class="hero-stat">
+      <strong>100%</strong>
+      <span>Privacy-First</span>
+    </div>
+    <div class="hero-stat">
+      <strong>Free</strong>
+      <span>Core Features</span>
+    </div>
+  </div>
+</header>
+
+<!-- ── FEATURES ── -->
+<section id="features">
+  <div class="container">
+    <div class="features-header">
+      <p class="section-label">Everything you need</p>
+      <h2 class="section-title">Packed with Powerful Features</h2>
+      <p class="section-sub">One app that replaces multiple tools for WhatsApp power users and QR enthusiasts.</p>
+    </div>
+
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">📷</div>
+        <h3>QR Code Scanner</h3>
+        <p>Instantly scan QR codes and barcodes using your camera. All processing happens on-device — fast, private, and offline-capable.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">✨</div>
+        <h3>QR Code Generator</h3>
+        <p>Create custom QR codes for URLs, contacts, Wi-Fi, text, and more. Add colors and logos to make them uniquely yours.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h3>WhatsApp Web</h3>
+        <p>Access the full WhatsApp Web interface inside the app — no need to switch browsers. Stay connected seamlessly.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📲</div>
+        <h3>Direct WhatsApp Chat</h3>
+        <p>Open a WhatsApp conversation with any number without saving it as a contact. Perfect for one-time chats.</p>
+      </div>
+
+
+<div class="feature-card">
+        <div class="feature-icon">⏰</div>
+        <h3>Schedule Messages</h3>
+        <p>Set a reminder to send a WhatsApp message at a future time. The app notifies you when it's time — your privacy stays intact.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🎙️</div>
+        <h3>Speech to Text</h3>
+        <p>Convert your voice to text instantly using your device's built-in speech engine. No data leaves your device.</p>
+      </div>
+
+
+<div class="feature-card">
+        <div class="feature-icon">📄</div>
+        <h3>Document Scanner</h3>
+        <p>Use your camera to digitize documents on the go. Entirely on-device — nothing is uploaded or stored externally.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>App Lock</h3>
+        <p>Protect the app with a 4-digit PIN stored in your device's secure enclave. Your PIN never leaves your device.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🎮</div>
+        <h3>Games, News &amp; Quiz</h3>
+        <p>Enjoy casual games, browse the latest news, and test your knowledge with quizzes — all without leaving the app.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📜</div>
+        <h3>Scan History</h3>
+        <p>Every code you scan is saved locally so you can revisit it anytime. Easily delete individual entries or clear all history.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PREMIUM ── -->
+<section id="premium">
+  <div class="container">
+    <div class="premium-grid">
+
+      <!-- Left: story -->
+      <div class="premium-left">
+        <span class="eyebrow">⚡ One-time upgrade</span>
+        <h2>Go <em>ad-free, forever</em> —<br>for about a dollar.</h2>
+        <p>
+          We built Whats Scan Plus to be genuinely useful, not to interrupt you every 30 seconds.
+          The free version is great — but if you want a completely smooth, distraction-free experience,
+          the lifetime upgrade is a no-brainer.
+        </p>
+        <p>
+          Pay once. No subscription. No renewal reminders. Just a clean, fast app
+          that works exactly the way you want it to — forever.
+        </p>
+
+        <ul class="premium-perks">
+          <li>
+            <span class="perk-dot">✕</span>
+            <div><strong>Zero ads, zero interruptions</strong> — banner, interstitial, and app-open ads are completely removed the moment you upgrade.</div>
+          </li>
+          <li>
+            <span class="perk-dot">🎨</span>
+            <div><strong>Full QR customisation</strong> — choose any foreground &amp; background color, add your own logo, and generate pixel-perfect branded QR codes in seconds.</div>
+          </li>
+          <li>
+            <span class="perk-dot">📱</span>
+            <div><strong>WhatsApp Web for dual accounts</strong> — switch between two WhatsApp numbers inside the same app. No need to log out, no juggling two phones.</div>
+          </li>
+          <li>
+            <span class="perk-dot">⚡</span>
+            <div><strong>Snappier experience</strong> — without ads loading in the background, the app launches faster and feels noticeably more responsive throughout.</div>
+          </li>
+        </ul>
+
+        <a href="https://play.google.com/store/apps/details?id=com.universal.whatsscanplus.qrtool"
+           class="btn btn-primary" target="_blank" rel="noopener" style="font-size:1rem;padding:14px 32px;">
+          Get it on Google Play
+        </a>
+      </div>
+
+      <!-- Right: pricing card -->
+      <div>
+        <div class="premium-card">
+          <span class="card-badge">Most Popular</span>
+          <span class="card-icon">🚀</span>
+          <p class="card-title">Remove Ads — Lifetime</p>
+          <div class="card-price"><sup>$</sup>0.99</div>
+          <p class="card-price-label">one-time · no subscription ever</p>
+
+          <ul class="card-features">
+            <li>All ads removed permanently</li>
+            <li>Custom QR colors &amp; logo branding</li>
+            <li>WhatsApp Web dual-account scanning</li>
+            <li>Faster app launch &amp; smoother UI</li>
+            <li>All future features included</li>
+            <li>Instant unlock via Google Play</li>
+          </ul>
+
+          <a href="https://play.google.com/store/apps/details?id=com.universal.whatsscanplus.qrtool"
+             class="btn btn-white" target="_blank" rel="noopener">
+            Unlock for ~$1 →
+          </a>
+          <p class="card-note">Price may vary slightly by region · Managed securely by Google Play</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY ── -->
+<section id="why">
+  <div class="container">
+    <div class="inner">
+      <div>
+        <p class="section-label">Why Whats Scan Plus</p>
+        <h2 class="section-title">Built for Privacy &amp; Performance</h2>
+        <p class="section-sub">We believe a powerful app shouldn't come at the cost of your privacy.</p>
+
+        <ul class="why-list">
+          <li>
+            <span class="check">✓</span>
+            <div><strong>No data sold — ever.</strong> We do not sell or share your personal data with third parties for profit.</div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div><strong>On-device processing.</strong> QR scanning, document scanning, and speech-to-text all run locally on your device.</div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div><strong>Secure storage.</strong> Your App Lock PIN is kept in the hardware-backed secure enclave — inaccessible to other apps.</div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div><strong>Free core features.</strong> All essential tools are free. Remove Ads is an optional one-time upgrade.</div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div><strong>No account required.</strong> Start using the app immediately — no sign-up, no email, no hassle.</div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div><strong>GDPR &amp; CCPA compliant.</strong> Full consent controls for ads and analytics built right in.</div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="why-visual">
+          <img src="assets/images/icon.png" alt="Whats Scan Plus app icon" class="app-icon" />
+          <h3>Whats Scan Plus &amp; QR Tool</h3>
+          <p>Free · Android · v3.0</p>
+          <div class="store-badges">
+            <a href="https://play.google.com/store/apps/details?id=com.universal.whatsscanplus.qrtool"
+               class="store-badge" target="_blank" rel="noopener">
+              <!-- Google Play triangle icon -->
+              <svg width="20" height="20" viewBox="0 0 512 512" fill="currentColor">
+                <path d="M48 59.49v393a4.33 4.33 0 0 0 7.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0 0 48 59.49z"/>
+                <path d="M345.8 174L89.22 32.64l-.16-.09c-4.42-2.4-8.62 3.58-5 7.06L285.19 231.28z"/>
+                <path d="M84.08 472.39c-3.64 3.48.56 9.46 5 7.06l.16-.09L345.8 338l-60.61-57.28z"/>
+                <path d="M449.38 231l-71.65-39.46L310.36 256l67.37 64.43L449.38 281c19.49-10.77 19.49-39.23 0-50z"/>
+              </svg>
+              Download on Google Play
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRIVACY STRIP ── -->
+<section id="privacy-strip">
+  <div class="container">
+    <h2>Your Privacy Matters</h2>
+    <p>We designed Whats Scan Plus with a privacy-first approach. Read our full privacy policy to understand exactly how your data is handled.</p>
+    <a href="https://helloaiops.github.io/whatsscanplusqrtool/privacy-policy.html" target="_blank" rel="noopener" class="btn btn-primary">Read Privacy Policy</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-links">
+    <a href="#features">Features</a>
+    <a href="https://helloaiops.github.io/whatsscanplusqrtool/privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>
+    <a href="mailto:vaghani98@gmail.com">Contact Us</a>
+  </div>
+  <p>&copy; 2025 <strong style="color:#fff">Ripplestacks</strong> &nbsp;&middot;&nbsp; Whats Scan Plus &amp; QR Tool &nbsp;&middot;&nbsp; All rights reserved</p>
+  <p style="margin-top:8px; font-size:0.8rem;">This app is not affiliated with or endorsed by WhatsApp Inc. or Meta Platforms, Inc.</p>
+</footer>
+
+</body>
+</html>
