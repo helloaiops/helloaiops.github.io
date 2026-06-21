@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO -->
+    <title>Arrow Out: Tap Logic Puzzle | Free Brain Teaser Game</title>
+    <meta
+      name="description"
+      content="Tap arrows in the right order to slide them off the board. 100 hand-crafted logic puzzles, smart hint solver, dark mode, offline play. Free on Android &amp; iOS."
+    />
+    <meta
+      name="keywords"
+      content="arrow puzzle, tap logic, brain teaser, slide puzzle, offline puzzle game, free puzzle game, logic puzzle android, arrow out game"
+    />
+    <meta name="author" content="Inkreek" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Arrow Out: Tap Logic Puzzle | Smart Brain Teaser"
+    />
+    <meta
+      property="og:description"
+      content="100 hand-crafted logic puzzles. Tap arrows, slide them off the board. Free on Android &amp; iOS."
+    />
+    <meta property="og:site_name" content="Arrow Out" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Arrow Out: Tap Logic Puzzle" />
+    <meta
+      name="twitter:description"
+      content="100 hand-crafted tap-logic puzzles. Free on Android &amp; iOS."
+    />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "Arrow Out: Tap Logic Puzzle",
+        "operatingSystem": "ANDROID, IOS",
+        "applicationCategory": "GameApplication",
+        "genre": "Puzzle",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "Inkreek",
+          "email": "parthvaghani1996@gmail.com"
+        },
+        "description": "100 hand-crafted tap-logic puzzles. Tap arrows in the right order to slide them off the board."
+      }
+    </script>
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --brown: #5c4030;
+        --brown-dark: #3a2820;
+        --amber: #c47828;
+        --amber-light: #e69845;
+        --cream: #f5efe0;
+        --cream-pale: #faf6ec;
+        --text: #2b1a10;
+        --muted: #7a5a48;
+        --border: #e8d9bf;
+        --white: #ffffff;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        color: var(--text);
+        background: var(--cream-pale);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow:
+          0 1px 0 rgba(196, 120, 40, 0.08),
+          0 4px 24px rgba(92, 64, 48, 0.06);
+        padding: 0 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+      }
+
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--brown-dark);
+      }
+
+      .nav-logo {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: var(--brown);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 900;
+        font-size: 0.85rem;
+        letter-spacing: -0.5px;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        list-style: none;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .nav-links a:hover {
+        color: var(--amber);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 22px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s;
+        border: none;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(196, 120, 40, 0.3);
+      }
+
+      .btn-primary {
+        background: var(--amber);
+        color: var(--white);
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 2px solid var(--amber);
+        color: var(--brown);
+      }
+
+      /* ── HERO ── */
+      .hero {
+        background: var(--brown);
+        color: var(--white);
+        padding: 100px 24px 90px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        min-height: calc(100vh - 64px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -10%;
+        width: 60%;
+        height: 200%;
+        background: radial-gradient(
+          circle at center,
+          rgba(196, 120, 40, 0.18),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: -50%;
+        right: -10%;
+        width: 60%;
+        height: 200%;
+        background: radial-gradient(
+          circle at center,
+          rgba(196, 120, 40, 0.12),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 720px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.4rem, 6vw, 4rem);
+        font-weight: 900;
+        letter-spacing: -1.5px;
+        line-height: 1.05;
+        margin-bottom: 24px;
+      }
+
+      .hero h1 .amber {
+        color: var(--amber-light);
+      }
+
+      .hero p {
+        font-size: clamp(1rem, 2.2vw, 1.2rem);
+        opacity: 0.85;
+        margin-bottom: 36px;
+        max-width: 560px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-row {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .store-btn {
+        background: #000;
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        transition: transform 0.15s;
+      }
+
+      .store-btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .store-btn small {
+        display: block;
+        font-size: 0.65rem;
+        opacity: 0.7;
+        font-weight: 400;
+      }
+
+      .store-btn strong {
+        display: block;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      /* ── SECTIONS ── */
+      section.block {
+        padding: 80px 24px;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        color: var(--amber);
+        background: #fbf3e3;
+        padding: 6px 14px;
+        border-radius: 50px;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+      }
+
+      h2.section-title {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        color: var(--brown-dark);
+        margin-bottom: 14px;
+      }
+
+      .section-sub {
+        font-size: 1.05rem;
+        color: var(--muted);
+        max-width: 640px;
+        margin-bottom: 48px;
+      }
+
+      /* ── FEATURE GRID ── */
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+      }
+
+      .feature {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 28px;
+        transition: transform 0.15s, box-shadow 0.15s;
+      }
+
+      .feature:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(92, 64, 48, 0.08);
+      }
+
+      .feature-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: var(--cream);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        font-size: 1.3rem;
+      }
+
+      .feature h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--brown-dark);
+      }
+
+      .feature p {
+        font-size: 0.93rem;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      /* ── HOW IT WORKS ── */
+      .how {
+        background: var(--cream);
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 24px;
+        margin-top: 40px;
+      }
+
+      .step {
+        text-align: center;
+      }
+
+      .step-num {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--amber);
+        color: #fff;
+        font-weight: 800;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        margin-bottom: 14px;
+      }
+
+      .step h3 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--brown-dark);
+      }
+
+      .step p {
+        font-size: 0.92rem;
+        color: var(--muted);
+      }
+
+      /* ── CTA ── */
+      .cta-bottom {
+        background: var(--brown);
+        color: #fff;
+        text-align: center;
+        padding: 80px 24px;
+      }
+
+      .cta-bottom h2 {
+        font-size: clamp(1.6rem, 4vw, 2.2rem);
+        font-weight: 800;
+        margin-bottom: 14px;
+      }
+
+      .cta-bottom p {
+        opacity: 0.85;
+        margin-bottom: 32px;
+        font-size: 1rem;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--brown-dark);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 40px 24px 24px;
+        text-align: center;
+        font-size: 0.85rem;
+      }
+
+      footer .links {
+        display: flex;
+        gap: 24px;
+        justify-content: center;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+      }
+
+      footer a:hover {
+        color: var(--amber-light);
+      }
+
+      footer .disclaimer {
+        margin-top: 14px;
+        font-size: 0.75rem;
+        opacity: 0.6;
+        max-width: 640px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 720px) {
+        nav { padding: 0 16px; }
+        .nav-links { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="nav-brand">
+        <span class="nav-logo">→</span>
+        Arrow Out
+      </div>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how">How to Play</a></li>
+        <li><a href="privacy-policy.html">Privacy</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-content">
+        <h1>
+          Tap. Slide. <span class="amber">Solve.</span>
+        </h1>
+        <p>
+          100 hand-crafted logic puzzles where every arrow has a path. Tap them
+          in the right order to clear the board.
+        </p>
+        <div class="cta-row" id="download">
+          <a
+            class="store-btn"
+            href="https://play.google.com/store/apps/details?id=com.inkreek.apps.arrowpuzzle"
+          >
+            <span>▶</span>
+            <span>
+              <small>GET IT ON</small>
+              <strong>Google Play</strong>
+            </span>
+          </a>
+          <a class="store-btn" href="https://apps.apple.com/app/id0">
+            <span>🍎</span>
+            <span>
+              <small>Download on the</small>
+              <strong>App Store</strong>
+            </span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- FEATURES -->
+    <section class="block" id="features">
+      <div class="container">
+        <span class="eyebrow">Why Arrow Out</span>
+        <h2 class="section-title">A logic puzzle that respects your time.</h2>
+        <p class="section-sub">
+          No timers, no energy bars, no friend-spam. Just clean puzzles that
+          get smarter, one level at a time.
+        </p>
+
+        <div class="feature-grid">
+          <div class="feature">
+            <div class="feature-icon">🧩</div>
+            <h3>100 Hand-Crafted Levels</h3>
+            <p>
+              From gentle warm-ups to brain-melting 50×50 boards. Each puzzle
+              is verified solvable by the same solver that powers your hints.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">💡</div>
+            <h3>Smart Hint System</h3>
+            <p>
+              Stuck? The bulb runs a full solvability search and points only
+              at safe moves — never at a tap that fails or dead-ends the board.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🌙</div>
+            <h3>Dark Mode</h3>
+            <p>
+              Warm cream by day, cocoa brown by night. One tap in Settings.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">📴</div>
+            <h3>Plays Offline</h3>
+            <p>
+              Every level is bundled with the app. No connection needed once
+              installed — perfect for flights and commutes.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🔇</div>
+            <h3>Quiet by Design</h3>
+            <p>
+              No push notifications nagging you to come back. The game waits
+              for you, not the other way around.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🎯</div>
+            <h3>Pinch-to-Zoom</h3>
+            <p>
+              Dense puzzles fit the screen, and you can pinch in to focus on
+              one corner at a time. Double-tap to reset the view.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO PLAY -->
+    <section class="block how" id="how">
+      <div class="container">
+        <span class="eyebrow">How to Play</span>
+        <h2 class="section-title">Three simple rules.</h2>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Tap an Arrow</h3>
+            <p>
+              Each arrow points one direction. Tap it and it slides that way
+              until it leaves the board.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>Don't Get Blocked</h3>
+            <p>
+              If another arrow is in the way, your move fails and you lose a
+              life. Order matters.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>Clear the Board</h3>
+            <p>
+              When every arrow has exited, the level is complete. Move on, or
+              go back and try with fewer lives lost.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <section class="cta-bottom">
+      <h2>Ready to find your first dead-end?</h2>
+      <p>Free, offline, no account required.</p>
+      <div class="cta-row">
+        <a
+          class="store-btn"
+          href="https://play.google.com/store/apps/details?id=com.inkreek.apps.arrowpuzzle"
+        >
+          <span>▶</span>
+          <span>
+            <small>GET IT ON</small>
+            <strong>Google Play</strong>
+          </span>
+        </a>
+        <a class="store-btn" href="https://apps.apple.com/app/id0">
+          <span>🍎</span>
+          <span>
+            <small>Download on the</small>
+            <strong>App Store</strong>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="mailto:parthvaghani1996@gmail.com">Contact</a>
+      </div>
+      <div>
+        &copy; 2026 Inkreek &nbsp;&middot;&nbsp; Arrow Out: Tap Logic Puzzle
+        &nbsp;&middot;&nbsp; All rights reserved
+      </div>
+      <p class="disclaimer">
+        Arrow Out is an independent puzzle game and is not affiliated with,
+        endorsed by, or connected to any third-party brand. Google Play and the
+        Google Play logo are trademarks of Google LLC. App Store is a service
+        mark of Apple Inc.
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy – Arrow Out: Tap Logic Puzzle</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        background: #f5efe0;
+        color: #2b1a10;
+        line-height: 1.7;
+      }
+      header {
+        background: #5c4030;
+        color: #fff;
+        padding: 40px 24px 32px;
+        text-align: center;
+      }
+      header h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+      header p {
+        margin-top: 8px;
+        font-size: 0.95rem;
+        opacity: 0.9;
+      }
+      main {
+        max-width: 800px;
+        margin: 32px auto;
+        padding: 0 20px 60px;
+      }
+      section {
+        background: #fff;
+        border-radius: 12px;
+        padding: 28px 32px;
+        margin-bottom: 20px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+      }
+      h2 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #c47828;
+        margin-bottom: 14px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #f5e3c8;
+      }
+      h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 18px 0 6px;
+      }
+      p {
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+      }
+      ul {
+        padding-left: 22px;
+        margin-bottom: 10px;
+      }
+      li {
+        font-size: 0.95rem;
+        margin-bottom: 5px;
+      }
+      a {
+        color: #c47828;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        margin-top: 10px;
+      }
+      th {
+        background: #fbf3e3;
+        text-align: left;
+        padding: 10px 12px;
+        border-bottom: 2px solid #f0dab0;
+        font-weight: 600;
+      }
+      td {
+        padding: 9px 12px;
+        border-bottom: 1px solid #f0f0f0;
+        vertical-align: top;
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      footer {
+        text-align: center;
+        font-size: 0.85rem;
+        color: #8a6a55;
+        padding: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Privacy Policy</h1>
+      <p>Arrow Out: Tap Logic Puzzle &nbsp; Last Updated: June 21, 2026</p>
+    </header>
+
+    <main>
+      <!-- 1. Introduction -->
+      <section>
+        <h2>1. Introduction</h2>
+        <p>
+          Welcome to <strong>Arrow Out: Tap Logic Puzzle</strong> ("App", "we",
+          "our", or "us"). This Privacy Policy explains how we collect, use,
+          disclose, and protect your information when you use our mobile
+          application available on Android and iOS.
+        </p>
+        <p>
+          By using the App, you agree to the practices described in this
+          policy. If you do not agree, please discontinue use of the App.
+        </p>
+      </section>
+
+      <!-- 2. Information We Collect -->
+      <section>
+        <h2>2. Information We Collect</h2>
+
+        <h3>2.1 Data Stored Locally on Your Device</h3>
+        <p>
+          The following data is stored <strong>only on your device</strong> and
+          is never transmitted to our servers:
+        </p>
+        <ul>
+          <li>
+            <strong>Level Progress:</strong> Which levels you have completed,
+            your current level, and per-level state (lives remaining, failed
+            attempts) — stored in a local SQLite database.
+          </li>
+          <li>
+            <strong>App Preferences:</strong> Sound on/off, haptics on/off,
+            dark mode, gameplay guidelines, and other settings — stored locally
+            via AsyncStorage.
+          </li>
+          <li>
+            <strong>Rating Prompt Tracking:</strong> Counters used to decide
+            when to show the in-app rating prompt (app opens, days installed,
+            levels completed) — stored locally; no identifying information.
+          </li>
+        </ul>
+
+        <h3>2.2 Information Collected Automatically</h3>
+        <p>
+          The following data is automatically collected through third-party
+          SDKs (see Section 5 for full details):
+        </p>
+        <ul>
+          <li>
+            <strong>Device Information:</strong> Device model, operating system
+            version, and pseudonymous device identifiers used by Firebase and
+            Google AdMob.
+          </li>
+          <li>
+            <strong>Usage Events:</strong> Screens viewed, levels started,
+            levels completed, levels failed, hints used — sent to Firebase
+            Analytics without any personally identifiable information.
+          </li>
+          <li>
+            <strong>Ad Interaction Data:</strong> Impressions and clicks on
+            banner, interstitial, and rewarded ads — collected by Google
+            AdMob, subject to your consent choice.
+          </li>
+          <li>
+            <strong>Crash &amp; Performance Data:</strong> If the App
+            unexpectedly closes, anonymous crash diagnostics may be sent to
+            Firebase to help us improve stability.
+          </li>
+        </ul>
+
+        <h3>2.3 Device Permissions Used</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Permission</th>
+              <th>Purpose</th>
+              <th>Shared Externally?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Internet</strong></td>
+              <td>
+                Required to fetch remote configuration, deliver ads, and send
+                anonymous analytics events.
+              </td>
+              <td>Via third-party SDKs only</td>
+            </tr>
+            <tr>
+              <td><strong>Vibration</strong></td>
+              <td>
+                Haptic feedback when you tap an arrow, complete a level, or
+                fail a move. Can be disabled in Settings.
+              </td>
+              <td>No</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top: 10px">
+          The App does <strong>not</strong> request access to your camera,
+          microphone, photo library, contacts, location, or any other sensitive
+          permission. You can manage all permissions through your device
+          settings at any time.
+        </p>
+      </section>
+
+      <!-- 3. App Features & Data Practices -->
+      <section>
+        <h2>3. App Features &amp; Data Practices</h2>
+
+        <h3>Puzzle Gameplay</h3>
+        <p>
+          The core game runs entirely on your device. Tap-to-fire mechanics,
+          level rendering, and hint computation all happen locally. Level
+          definitions are bundled with the App and are not fetched at runtime.
+        </p>
+
+        <h3>Progress &amp; Save System</h3>
+        <p>
+          Your completed levels and current level are saved in a local SQLite
+          database so you can pick up where you left off. This data lives only
+          on your device and is permanently deleted when you uninstall the
+          App. You can also wipe it at any time via
+          <em>Settings &rarr; Reset Progress</em>.
+        </p>
+
+        <h3>Bulb Hint</h3>
+        <p>
+          A built-in solver looks at your current board and suggests the next
+          safe move. The solver runs entirely on-device — no board state is
+          transmitted anywhere. On post-tutorial levels, watching a short
+          rewarded ad is required to unlock the hint (see Section 5.1 for ad
+          partner details).
+        </p>
+
+        <h3>Daily Lives / Refill</h3>
+        <p>
+          When you run out of lives on a level, the App may offer the option
+          to watch a short ad to refill them. This is optional; restarting the
+          level is always free.
+        </p>
+
+        <h3>Rating Prompt</h3>
+        <p>
+          After you have played the App a few times, we may show a one-time
+          prompt asking you to rate us on the App Store / Play Store. Tapping
+          "Rate Us" opens the store's native review sheet. We never see your
+          rating or review text directly.
+        </p>
+      </section>
+
+      <!-- 4. How We Use Your Information -->
+      <section>
+        <h2>4. How We Use Your Information</h2>
+        <p>The information collected is used to:</p>
+        <ul>
+          <li>Run the game and save your progress between sessions</li>
+          <li>Display advertisements through Google AdMob</li>
+          <li>
+            Analyze anonymous usage patterns to improve difficulty curves,
+            level design, and App performance
+          </li>
+          <li>
+            Remotely tune gameplay parameters (e.g. ad frequency, hint
+            availability) without requiring an App update
+          </li>
+          <li>Diagnose and fix crashes</li>
+          <li>Comply with legal obligations</li>
+        </ul>
+        <p>
+          We do <strong>not</strong> sell your personal data to any third
+          party.
+        </p>
+      </section>
+
+      <!-- 5. Third-Party Services -->
+      <section>
+        <h2>5. Third-Party Services &amp; SDKs</h2>
+
+        <h3>5.1 Google AdMob (Advertising)</h3>
+        <p>
+          Displays banner, interstitial, and rewarded ads. May collect
+          advertising ID and usage data.
+        </p>
+        <ul>
+          <li>
+            EEA/UK users: a UMP consent form is shown before ads load.
+            Personalized ads are served only with your consent.
+          </li>
+          <li>Ad content rated <strong>General Audience (G)</strong>.</li>
+          <li>
+            Privacy policy:
+            <a
+              href="https://policies.google.com/privacy"
+              target="_blank"
+              rel="noopener"
+              >policies.google.com/privacy</a
+            >
+          </li>
+        </ul>
+
+        <h3>5.2 Firebase Analytics (Google)</h3>
+        <p>
+          Collects anonymous usage events (screens viewed, levels started /
+          completed / failed, hints used). No personally identifiable
+          information is included.
+        </p>
+        <ul>
+          <li>
+            Privacy policy:
+            <a
+              href="https://firebase.google.com/support/privacy"
+              target="_blank"
+              rel="noopener"
+              >firebase.google.com/support/privacy</a
+            >
+          </li>
+        </ul>
+
+        <h3>5.3 Firebase Remote Config (Google)</h3>
+        <p>
+          Used to deliver server-controlled gameplay parameters (ad pacing,
+          hint gating, minimum supported app version, force-update messaging).
+          Only the configuration payload is downloaded; no personal data is
+          uploaded.
+        </p>
+        <ul>
+          <li>
+            Privacy policy:
+            <a
+              href="https://firebase.google.com/support/privacy"
+              target="_blank"
+              rel="noopener"
+              >firebase.google.com/support/privacy</a
+            >
+          </li>
+        </ul>
+
+        <h3>5.4 In-App Purchases (Future)</h3>
+        <p>
+          The App may, in a future release, offer optional in-app purchases
+          (for example, an ad-removal upgrade). When introduced, all payment
+          processing will be handled by the App Store / Google Play and any
+          purchase verification provider will be disclosed here.
+        </p>
+      </section>
+
+      <!-- 6. Data Sharing -->
+      <section>
+        <h2>6. Data Sharing &amp; Disclosure</h2>
+        <p>
+          We do not sell your personal information. Data may be shared only in
+          the following situations:
+        </p>
+        <ul>
+          <li>
+            <strong>Advertising Partner:</strong> Google AdMob may receive
+            device/usage data to serve ads based on your consent choice.
+          </li>
+          <li>
+            <strong>Analytics:</strong> Firebase receives anonymous usage
+            events to help us improve the App.
+          </li>
+          <li>
+            <strong>Legal Obligations:</strong> We may disclose data if
+            required by law or legal process.
+          </li>
+          <li>
+            <strong>Business Transfers:</strong> In a merger, acquisition, or
+            asset sale, user information may transfer as part of the
+            transaction. We will notify you before such a transfer takes
+            effect.
+          </li>
+        </ul>
+      </section>
+
+      <!-- 7. Children -->
+      <section>
+        <h2>7. Children's Privacy</h2>
+        <p>
+          Arrow Out is suitable for all ages, but the App is not specifically
+          directed to children under 13 (or 16 in the EEA). We do not
+          knowingly collect personal information from children. If you believe
+          a child has provided information through the App, contact us
+          immediately and we will delete it promptly.
+        </p>
+        <p>
+          Ad content is restricted to General Audience (G) rating with
+          child-directed treatment configured at the ad-request level where
+          required.
+        </p>
+      </section>
+
+      <!-- 8. Your Rights and Choices -->
+      <section>
+        <h2>8. Your Rights &amp; Choices</h2>
+
+        <h3>All Users</h3>
+        <ul>
+          <li>
+            Reset all level progress at any time via <em>Settings &rarr; Reset
+            Progress</em>
+          </li>
+          <li>
+            Disable sound, haptics, or gameplay guidelines via
+            <em>Settings</em>
+          </li>
+          <li>
+            Revoke any device permission at any time via device settings (some
+            features will be limited)
+          </li>
+        </ul>
+
+        <h3>Opt Out of Personalized Ads</h3>
+        <ul>
+          <li>
+            <strong>Android:</strong> Settings &rarr; Google &rarr; Ads &rarr;
+            Opt out of Ads Personalization
+          </li>
+          <li>
+            <strong>iOS:</strong> Settings &rarr; Privacy &amp; Security &rarr;
+            Apple Advertising &rarr; Limit Ad Tracking
+          </li>
+          <li>
+            EEA/UK: you may withdraw ad consent at any time through the
+            consent settings.
+          </li>
+        </ul>
+
+        <h3>EEA / UK Users (GDPR)</h3>
+        <ul>
+          <li>Access, correct, or request deletion of your personal data</li>
+          <li>Object to or restrict processing</li>
+          <li>Withdraw consent for personalized ads at any time</li>
+          <li>Lodge a complaint with your local data protection authority</li>
+        </ul>
+
+        <h3>California Residents (CCPA)</h3>
+        <p>
+          You have the right to know what personal information is collected,
+          request deletion, and opt out of its sale. We do not sell personal
+          information. Contact us at the address below to exercise your
+          rights.
+        </p>
+      </section>
+
+      <!-- 9. Data Storage and Retention -->
+      <section>
+        <h2>9. Data Storage &amp; Retention</h2>
+        <ul>
+          <li>
+            <strong>SQLite Database:</strong> Level progress stored locally;
+            deletable via Settings → Reset Progress or by uninstalling the
+            App.
+          </li>
+          <li>
+            <strong>AsyncStorage:</strong> App preferences stored locally;
+            cleared on uninstall.
+          </li>
+        </ul>
+        <p>
+          All locally stored data is permanently deleted when you uninstall the
+          App.
+        </p>
+        <p>
+          Analytics data retained by Firebase follows Google's standard
+          retention periods (up to 14 months). You can request deletion by
+          contacting us.
+        </p>
+      </section>
+
+      <!-- 10. Security -->
+      <section>
+        <h2>10. Security</h2>
+        <p>
+          We apply reasonable technical and organizational security measures.
+          Most user data never leaves your device. The App does not transmit
+          any sensitive personal information.
+        </p>
+        <p>
+          No electronic storage or transmission method is completely secure.
+          We cannot guarantee absolute security but will notify users of any
+          breaches as required by applicable law.
+        </p>
+      </section>
+
+      <!-- 11. International Data Transfers -->
+      <section>
+        <h2>11. International Data Transfers</h2>
+        <p>
+          Data processed by third-party services (Google) may be transferred
+          to and stored in countries outside your country of residence, where
+          data protection laws may differ. We ensure all third-party partners
+          we use maintain adequate data protection standards.
+        </p>
+      </section>
+
+      <!-- 12. Changes -->
+      <section>
+        <h2>12. Changes to This Policy</h2>
+        <p>
+          This Privacy Policy may be updated periodically. Any changes will be
+          posted on this page with an updated "Last Updated" date. Continued
+          use of the App after changes are posted constitutes acceptance of
+          the revised policy.
+        </p>
+      </section>
+
+      <!-- 13. Contact -->
+      <section>
+        <h2>13. Contact Us</h2>
+        <p>
+          If you have questions, concerns, or data requests regarding this
+          Privacy Policy, contact us:
+        </p>
+        <ul>
+          <li><strong>Developer:</strong> Inkreek</li>
+          <li>
+            <strong>Email:</strong>
+            <a href="mailto:parthvaghani1996@gmail.com"
+              >parthvaghani1996@gmail.com</a
+            >
+          </li>
+          <li>
+            <strong>Address:</strong> 217, Valamnagar Society, Near Akar Sports
+            Club, Simada Gam, Surat, Gujarat, India &ndash; 395006
+          </li>
+        </ul>
+        <p>
+          We aim to respond to all privacy-related inquiries within 30 days.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      &copy; 2026 Inkreek &nbsp; Arrow Out: Tap Logic Puzzle &nbsp; All rights
+      reserved
+    </footer>
+  </body>
+</html>
