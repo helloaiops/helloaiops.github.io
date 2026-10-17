@@ -282,6 +282,19 @@
             whether a notification was delivered and opened.
           </li>
           <li>
+            <strong>Usage statistics (optional, off by default).</strong> Only
+            if you choose <em>Allow</em> when the app asks (or turn on
+            <em>Share usage statistics</em> in Account &rarr; Privacy &amp;
+            security), the mobile app sends anonymous usage statistics to Google
+            Analytics for Firebase: which screens are opened (with record IDs
+            removed), which features are used (for example "ledger entry
+            created" with its type, or "settlement shared"), and basic device
+            information (device model, operating system, app version, country
+            from IP) with a random app-instance ID. It never includes your
+            amounts, ledger entries, names, email, messages or files, is not
+            linked to your account, and does not use the advertising ID.
+          </li>
+          <li>
             <strong>Sign-in sessions.</strong> We keep records of your active
             sessions so you can stay signed in, and so they can be ended (for
             example when you change your password or delete your account).
@@ -379,7 +392,7 @@
         <h3>2.7 What we do not collect</h3>
         <ul>
           <li>No advertising, and no advertising ID</li>
-          <li>No third-party analytics or tracking SDKs</li>
+          <li>No analytics unless you opt in (see 2.4), and no tracking across other apps or websites</li>
           <li>No access to your contacts, SMS, call logs or calendar</li>
           <li>No background location</li>
           <li>No bank account log-ins or card details</li>
@@ -407,6 +420,10 @@
           <li>
             Keep the Service secure, prevent abuse, keep an audit trail of
             changes, and troubleshoot problems
+          </li>
+          <li>
+            If you opt in to usage statistics, understand which screens and
+            features are used so we can fix problems and decide what to improve
           </li>
           <li>Respond to your support requests</li>
           <li>Comply with legal obligations</li>
@@ -496,6 +513,16 @@
                 </td>
                 <td>Delivers push notifications to Android devices</td>
                 <td>Push token, notification content</td>
+              </tr>
+              <tr>
+                <td><strong>Google Analytics for Firebase</strong></td>
+                <td>
+                  Anonymous app usage statistics &mdash; only if you opt in
+                </td>
+                <td>
+                  Screen names, feature events, device model, operating system,
+                  app version, approximate country, random app-instance ID
+                </td>
               </tr>
               <tr>
                 <td><strong>GIPHY</strong></td>
@@ -695,6 +722,12 @@
           <li>
             <strong>Delete:</strong> delete your account in the app or web app,
             or by email (Section 8).
+          </li>
+          <li>
+            <strong>Usage statistics:</strong> off unless you allow it; switch
+            it on or off at any time in Account &rarr; Privacy &amp; security.
+            Turning it off stops collection and resets the analytics ID on your
+            device.
           </li>
           <li>
             <strong>Notifications:</strong> mute categories in
